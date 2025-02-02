@@ -1,0 +1,30 @@
+BASE_CHARGE = 40
+BATHROOM_CHARGE = 15
+ROOM_CHARGE = 10
+SENTINEL_NAME = "2777"
+
+def housekeeping():
+    global customer_name
+    customer_name = input("Enter the customer's last name( enter 2777 to stop): ")
+
+def detail_loop():
+    global customer_name
+    bathrooms = int(input("Enter the number of bathrooms to  be cleaned: "))
+    other_rooms = int(input("Enter the number of  other rooms to be cleaned: "))
+
+    service_charge = BASE_CHARGE + (bathrooms * BATHROOM_CHARGE) + (other_rooms * ROOM_CHARGE)
+
+    print(f"Service charge for {customer_name}: ${service_charge:.2f}")
+
+def end_of_job():
+    print("Program complete. Thanks for using Hazel's Housecleaning service.")
+
+def main():
+    while True:
+        housekeeping()
+        if customer_name == SENTINEL_NAME: 
+            end_of_job()
+            break
+          detail_loop()
+
+main()
