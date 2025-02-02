@@ -1,0 +1,26 @@
+HOURLY_RATE = 30
+
+def cost_calculation():
+    global hours, material_cost
+    hours = float(inout("Enter the projected number of hours (enter 0 to stop): "))
+
+    if hours == 0:
+        return False
+
+    material_cost = float(input("Enter the wholesale cost of materials: "))
+
+    total_cost = hours * HOURLY_RATE) + (1.2 * material_cost)
+
+    print(f"The projected cost of the job is: ${total_cost:.2f}")
+
+    return True
+
+def end_of_job():
+    print("End of program.")
+
+def main():
+    while True:
+        if not cost_calculation():
+            break
+    end_of_job
+main()
